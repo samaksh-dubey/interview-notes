@@ -40,8 +40,10 @@ g(x) = h(x)  % 10
 
 **Loading Factor** = Number of Keys / Size of Hash Table
 
-## Other Hashing Functions
+## Example of Hashing Functions
 
-1. Mod
-2. Mid Square
-3. Folding
+**Mod Function** => h(x) = x % size
+
+**Mid Square Function** => do x^2 and take middle digit
+
+**Folding Function** => partition x into group of digits then add these digits and take result as index in HT
