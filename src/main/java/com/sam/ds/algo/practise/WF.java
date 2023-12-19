@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Longest Consecutive Zeros Sub array less than size K
  * */
-public class Wayfair {
+public class WF {
 
     public static int max(List<Integer> encrypted, List<Integer> binary, int k) {
         int oneSum = 0, zeroSum = 0, max = 0, count = 0, beg = -1;

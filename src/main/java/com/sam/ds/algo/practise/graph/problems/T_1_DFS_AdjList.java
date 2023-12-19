@@ -1,16 +1,16 @@
 package com.sam.ds.algo.practise.graph.problems;
 
 import com.sam.ds.algo.practise.graph.base.Edge;
-import com.sam.ds.algo.practise.graph.base.Graph;
+import com.sam.ds.algo.practise.graph.base.DirectedGraph;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-public class T_1_DFS {
+public class T_1_DFS_AdjList {
 
     static class Recursive {
-        static void dfs(Graph graph) {
+        static void dfs(DirectedGraph graph) {
             if(graph == null || graph.vN == 0)
                 return;
 
@@ -21,7 +21,7 @@ public class T_1_DFS {
                     dfs(graph, i, visited);
         }
 
-        static void dfs(Graph graph, int v, boolean[] visited) {
+        static void dfs(DirectedGraph graph, int v, boolean[] visited) {
             visited[v] = true;
             List<Edge> edges = graph.adjList.get(v);
 
@@ -34,7 +34,7 @@ public class T_1_DFS {
     }
 
     static class Iterative {
-        static void dfs(Graph graph) {
+        static void dfs(DirectedGraph graph) {
             if(graph == null || graph.vN == 0)
                 return;
 
@@ -47,7 +47,7 @@ public class T_1_DFS {
             }
         }
 
-        static void dfs(Graph graph, int u, boolean[] visited) {
+        static void dfs(DirectedGraph graph, int u, boolean[] visited) {
             Stack<Integer> stack = new Stack<>();
             stack.push(u);
 
@@ -83,7 +83,7 @@ public class T_1_DFS {
                 new Edge(9, 11)
         );
 
-        Graph graph = new Graph(edges, 13);
+        DirectedGraph graph = new DirectedGraph(edges, 13);
         Recursive.dfs(graph);
         System.out.println();
         Iterative.dfs(graph);
