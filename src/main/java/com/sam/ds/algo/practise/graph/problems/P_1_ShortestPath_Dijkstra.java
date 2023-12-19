@@ -1,7 +1,7 @@
 package com.sam.ds.algo.practise.graph.problems;
 
 import com.sam.ds.algo.practise.graph.base.Edge;
-import com.sam.ds.algo.practise.graph.base.Graph;
+import com.sam.ds.algo.practise.graph.base.DirectedGraph;
 import com.sam.ds.algo.practise.graph.base.Vertex;
 
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.Queue;
 
 public class P_1_ShortestPath_Dijkstra {
 
-    public static void shortestPath(Graph graph, int source, int n) {
+    public static void shortestPath(DirectedGraph graph, int source, int n) {
 
         class DijkstraVertex extends Vertex {
             final int weight;

@@ -1,17 +1,17 @@
 package com.sam.ds.algo.practise.graph.problems;
 
 import com.sam.ds.algo.practise.graph.base.Edge;
-import com.sam.ds.algo.practise.graph.base.Graph;
+import com.sam.ds.algo.practise.graph.base.DirectedGraph;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class T_2_BFS {
+public class T_2_BFS_AdjList {
 
     static class Iterative {
-        static void bfs(Graph graph) {
+        static void bfs(DirectedGraph graph) {
             if(graph == null || graph.vN == 0)
                 return;
 
@@ -23,7 +23,7 @@ public class T_2_BFS {
             }
         }
 
-        static void bfs(Graph graph, int v, boolean[] visited) {
+        static void bfs(DirectedGraph graph, int v, boolean[] visited) {
             final Queue<Integer> queue = new LinkedList<>();
             queue.add(v);
 
@@ -59,7 +59,7 @@ public class T_2_BFS {
                 new Edge(7, 12)
         );
 
-        Graph graph = new Graph(edges, 15);
+        DirectedGraph graph = new DirectedGraph(edges, 15);
 
         Iterative.bfs(graph);
     }
