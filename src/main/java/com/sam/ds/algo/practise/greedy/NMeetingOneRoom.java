@@ -2,6 +2,7 @@ package com.sam.ds.algo.practise.greedy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class NMeetingOneRoom {
@@ -26,7 +27,7 @@ public class NMeetingOneRoom {
         for(int i = 0; i < start.length; i++)
             meetings[i] = new Meeting(start[i], end[i]);
 
-        Arrays.sort(meetings, (a, b) -> a.end - b.end);
+        Arrays.sort(meetings, Comparator.comparingInt(a -> a.end));
 
         List<Meeting> result = new ArrayList<>();
         Meeting current = meetings[0];
@@ -42,10 +43,6 @@ public class NMeetingOneRoom {
     }
 
     public static void main(String[] args) {
-//        int[] s = { 1, 3, 0, 5, 8, 5 };
-//        int[] f = { 2, 4, 6, 7, 9, 9 };
-//        List<Meeting> meetings = maxMeetings(s, f);
-//        System.out.println(meetings);
         int[] s = { 1, 3, 0, 5, 8, 5 };
         int[] f = { 2, 4, 6, 7, 9, 9 };
         List<Meeting> meetings = maxMeetings(s, f);
