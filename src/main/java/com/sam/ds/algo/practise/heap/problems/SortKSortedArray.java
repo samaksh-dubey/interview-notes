@@ -1,33 +1,30 @@
 package com.sam.ds.algo.practise.heap.problems;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class SortKSortedArray {
 
-  static void sort(int[] A, int K) {
-    int N = A.length, j = 0;
-    if (N == 0)
+  static void sort(int[] arr, int k) {
+    int n = arr.length, j = 0;
+    if (n == 0)
       return;
 
+    // insert first K+1 elements into the array ->
+    // this ensures that the element in sorted order at first index will be in heap
     PriorityQueue<Integer> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a));
-    for (int i = 0; i < K + 1; i++)
-      heap.offer(A[i]);
+    for (int i = 0; i < k + 1; i++)
+      heap.offer(arr[i]);
 
-    for (int i = K + 1; i < N; i++) {
-      A[j++] = heap.poll();
-      heap.offer(A[i]);
+    // iterate from K+1 index and populate the elements in array from start
+    // put (K+1)th index element in heap
+    for (int i = k + 1; i < n; i++) {
+      arr[j++] = heap.poll();
+      heap.offer(arr[i]);
     }
 
+    // insert remaining elements from heap to array
     while (!heap.isEmpty())
-      A[j++] = heap.poll();
-  }
-
-  public static void main(String[] args) {
-    int[] arr = new int[]{1, 4, 5, 2, 3, 7, 8, 6, 10, 9};
-    int k = 2;
-    sort(arr, k);
-    System.out.println(Arrays.toString(arr));
+      arr[j++] = heap.poll();
   }
 }

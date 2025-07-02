@@ -1,81 +1,66 @@
 package com.sam.ds.algo.practise.heap.problems;
 
-import java.util.Arrays;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class SmallestRangeWithOneElementFromEachList {
 
-  static class Node implements Comparable<Node> {
-    int data, index, list;
+  static class Node {
+    @Getter @Setter private int data, index;
+    @Getter private final int list;
 
     public Node(int data, int index, int list) {
       this.data = data;
       this.index = index;
       this.list = list;
     }
-
-    @Override
-    public int compareTo(Node o) {
-      return this.data - o.data;
-    }
   }
 
-  static class Pair {
-    int high, low;
+  static int[] minRange(List<List<Integer>> lists) {
+    // variable to keep track of highest element found so far in the heap
+    int max = Integer.MIN_VALUE;
 
-    public Pair(int high, int low) {
-      this.high = high;
-      this.low = low;
-    }
-
-    @Override
-    public String toString() {
-      return "{" + low + "," + high + "}";
-    }
-  }
-
-  static Pair minRange(List<List<Integer>> lists) {
-    PriorityQueue<Node> queue = new PriorityQueue<>();
+    // initialize a min heap and store the first elements of every list
+    PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(Node::getData));
     for (int i = 0; i < lists.size(); i++) {
-      if (lists.get(i).isEmpty())
-        return new Pair(-1, -1);
-      else
-        queue.add(new Node(lists.get(i).get(0), 0, i));
+        queue.add(new Node(lists.get(i).getFirst(), 0, i));
+        max = Math.max(max, lists.get(i).getFirst());
     }
 
-    int high = Integer.MIN_VALUE;
-    Pair result = new Pair(Integer.MAX_VALUE, 0);
+    int[] result = new int[] {0, Integer.MAX_VALUE};
 
     while (true) {
-      Node min = queue.poll();
+      Node node = queue.poll();
 
-      int low = min.data;
-      int list = min.list;
-      int index = min.index;
+      assert node != null;
 
-      if (high - low < result.high - result.low)
-        result = new Pair(high, low);
+      int min = node.getData();
+      int list = node.getList();
+      int nextIndex = node.getIndex() + 1;
 
-      if (index + 1 == lists.get(list).size())
+      // update the result if the range is lower than the previous range
+      if (max - min < result[1] - result[0]) {
+        result = new int[] {min, max};
+      }
+
+      // return if one of the list is exhausted
+      if (nextIndex == lists.get(list).size()) {
         return result;
+      }
 
-      min.data = lists.get(list).get(index + 1);
-      min.index = index + 1;
-      queue.add(min);
+      // set the values of next element in the list to node
+      node.setData(lists.get(list).get(nextIndex));
+      node.setIndex(nextIndex);
 
-      high = Math.max(high, lists.get(list).get(index + 1));
+      // add node back to heap
+      queue.add(node);
+
+      // reevaluate max value
+      max = Math.max(max, lists.get(list).get(nextIndex));
     }
-  }
-
-  public static void main(String[] args) {
-    List<List<Integer>> lists = Arrays.asList(
-        Arrays.asList(3, 6, 8, 10, 15),
-        Arrays.asList(1, 5, 12),
-        Arrays.asList(4, 8, 15, 16),
-        Arrays.asList(2, 6)
-    );
-
-    System.out.println("The minimum range is " + minRange(lists));
   }
 }

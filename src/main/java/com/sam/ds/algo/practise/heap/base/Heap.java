@@ -20,18 +20,6 @@ public class Heap<T> {
     heapify();
   }
 
-  private int parent(int i) {
-    return (i - 1) / 2;
-  }
-
-  private int left(int i) {
-    return 2 * i + 1;
-  }
-
-  private int right(int i) {
-    return 2 * i + 2;
-  }
-
   private void swap(int i, int j) {
     T temp = vector.get(i);
     vector.set(i, vector.get(j));
@@ -39,13 +27,13 @@ public class Heap<T> {
   }
 
   private void heapify() {
-    int lastParent = parent(vector.size() - 1);
+    int lastParent = HeapUtils.parent(vector.size() - 1);
     for (int i = lastParent; i >= 0; i--)
       heapifyDown(i);
   }
 
   private void heapifyDown(int i) {
-    int next = i, right = right(next), left = left(i);
+    int next = i, right = HeapUtils.right(next), left = HeapUtils.left(i);
 
     if (left < vector.size() && comparator.compare(vector.get(next), vector.get(left)) >= 0)
       next = left;
@@ -60,7 +48,7 @@ public class Heap<T> {
   }
 
   private void heapifyUp(int i) {
-    int parent = parent(i);
+    int parent = HeapUtils.parent(i);
     if (i > 0 && comparator.compare(vector.get(parent), vector.get(i)) >= 0) {
       swap(i, parent);
       heapifyUp(parent);
@@ -76,9 +64,9 @@ public class Heap<T> {
     if (this.vector.isEmpty())
       return null;
 
-    T top = this.vector.get(0);
+    T top = this.vector.getFirst();
     swap(0, this.vector.size() - 1);
-    this.vector.remove(this.vector.size() - 1);
+    this.vector.removeLast();
     heapifyDown(0);
     return top;
   }
@@ -87,7 +75,7 @@ public class Heap<T> {
     if (this.vector.isEmpty())
       return null;
 
-    return this.vector.get(0);
+    return this.vector.getFirst();
   }
 
   public boolean isEmpty() {

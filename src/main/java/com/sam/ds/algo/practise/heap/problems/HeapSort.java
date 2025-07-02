@@ -1,7 +1,5 @@
 package com.sam.ds.algo.practise.heap.problems;
 
-import java.util.Arrays;
-
 public class HeapSort {
 
   static void sort(int[] arr) {
