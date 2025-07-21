@@ -1,32 +1,53 @@
 package com.sam.dsa.trie.base;
 
-import lombok.Getter;
-
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
+import lombok.Getter;
+import lombok.Setter;
 
-class Node {
-  private final Map<Character, Node> children;
-  @Getter private boolean isLeaf;
+public class Node {
+  private final char character;
+  @Getter private final String key;
+  @Getter private final Map<Character, Node> children;
+  @Getter @Setter private boolean isLeaf;
+  @Getter int count;
 
-  public Node() {
-    this.children = new HashMap<>();
+  public Node(char character, String key) {
+    this.character = character;
+    this.key = key;
+    this.children = new TreeMap<>(Character::compare);
   }
 
-  public boolean hasChild(Character c) {
-    return this.children.containsKey(c);
+  public boolean hasChild(Character ch) {
+    return this.children.containsKey(ch);
   }
 
-  public void addChild(Character c) {
-    this.children.putIfAbsent(c, new Node());
+  public Node getChild(char ch) {
+    return this.children.get(ch);
   }
 
-  public Node getChild(char c) {
-    return this.children.get(c);
+  public void addChild(Character ch) {
+    this.children.putIfAbsent(ch, new Node(ch, key + ch));
   }
 
-  public void setLeaf() {
-    this.isLeaf = true;
+  public void remove(char ch) {
+    this.children.remove(ch);
   }
 
+  public int childCount() {
+    return this.children.size();
+  }
+
+  public boolean isEmpty() {
+    return this.children.isEmpty();
+  }
+
+  public void incrementCount() {
+    this.count = this.count + 1;
+  }
+
+  @Override
+  public String toString() {
+    return String.valueOf(character);
+  }
 }

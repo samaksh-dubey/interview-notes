@@ -4,9 +4,9 @@ import com.sam.dsa.tree.node.Node;
 
 public abstract class BaseTree {
 
-    Node root;
+  Node root;
 
-    public Node getRoot() {
-        return this.root;
-    }
+  public Node getRoot() {
+    return this.root;
+  }
 }

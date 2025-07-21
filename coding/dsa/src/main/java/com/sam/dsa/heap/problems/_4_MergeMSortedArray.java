@@ -1,11 +1,10 @@
 package com.sam.dsa.heap.problems;
 
+import java.util.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-public class MergeMSortedArray {
+public class _4_MergeMSortedArray {
 
   // Node to store the data
   // list in which the data is stored
@@ -40,7 +39,8 @@ public class MergeMSortedArray {
       // add minimum to list
       result.add(node.getData());
 
-      // find the list to which this minimum element belongs and the nextIndex of data element in the list
+      // find the list to which this minimum element belongs and the nextIndex of data element in
+      // the list
       int minList = node.getList(), nextIndex = node.getIndex() + 1;
 
       // see if there are elements remaining in the list

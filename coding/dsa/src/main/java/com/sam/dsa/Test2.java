@@ -35,39 +35,34 @@ Output :- Array = [7,1,2,3,4,5,6]
 * */
 public class Test2 {
 
-    // left == true ==> left
-    // left == false ==> right
-    static int[] kSort(int[] arr, int k, boolean left) {
-        if (arr == null || arr.length == 0 || arr.length == 1)
-            return arr;
-        if (k == 0)
-            return arr;
-        int n = arr.length;
-        int[] newIndexes = new int[n];
-        for (int i = 0; i < n; i++) {
-            if (left)
-                newIndexes[i] = (n-k%n+i)%n;
-            else
-                newIndexes[i] = (k%n+i)%n;
-        }
-        int[] result = new int[n];
-        for(int i = 0; i < n; i++) {
-            result[newIndexes[i]] = arr[i];
-        }
-        return result;
+  // left == true ==> left
+  // left == false ==> right
+  static int[] kSort(int[] arr, int k, boolean left) {
+    if (arr == null || arr.length == 0 || arr.length == 1) return arr;
+    if (k == 0) return arr;
+    int n = arr.length;
+    int[] newIndexes = new int[n];
+    for (int i = 0; i < n; i++) {
+      if (left) newIndexes[i] = (n - k % n + i) % n;
+      else newIndexes[i] = (k % n + i) % n;
     }
+    int[] result = new int[n];
+    for (int i = 0; i < n; i++) {
+      result[newIndexes[i]] = arr[i];
+    }
+    return result;
+  }
 
-    public static void main(String[] args) {
-        print(kSort(new int[] {1,2,3,4,5,6,7}, 1, true));
-        print(kSort(new int[] {1,2,3,4,5,6,7}, 2, true));
-        print(kSort(new int[] {1,2,3,4,5,6,7}, 8, true));
-        print(kSort(new int[] {1,2,3,4,5,6,7}, 3, false));
-        print(kSort(new int[] {1,2,3,4,5,6,7}, 1, false));
-    }
+  public static void main(String[] args) {
+    print(kSort(new int[] {1, 2, 3, 4, 5, 6, 7}, 1, true));
+    print(kSort(new int[] {1, 2, 3, 4, 5, 6, 7}, 2, true));
+    print(kSort(new int[] {1, 2, 3, 4, 5, 6, 7}, 8, true));
+    print(kSort(new int[] {1, 2, 3, 4, 5, 6, 7}, 3, false));
+    print(kSort(new int[] {1, 2, 3, 4, 5, 6, 7}, 1, false));
+  }
 
-    private static void print(int[] arr) {
-        for(int a: arr)
-            System.out.print(a + ", ");
-        System.out.println();
-    }
+  private static void print(int[] arr) {
+    for (int a : arr) System.out.print(a + ", ");
+    System.out.println();
+  }
 }

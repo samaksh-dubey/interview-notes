@@ -19,8 +19,7 @@ public class HeapUtils {
 
   // check if given array is heap or not
   public static boolean isHeap(int[] arr) {
-    if(arr == null || arr.length == 0)
-      return true;
+    if (arr == null || arr.length == 0) return true;
 
     return isHeap(arr, 0);
   }
@@ -41,7 +40,6 @@ public class HeapUtils {
     }
 
     // Recursively check left and right subtrees
-    return (left >= arr.length || isHeap(arr, left)) &&
-        (right >= arr.length || isHeap(arr, right));
+    return (left >= arr.length || isHeap(arr, left)) && (right >= arr.length || isHeap(arr, right));
   }
 }

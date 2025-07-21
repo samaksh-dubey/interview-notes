@@ -1,13 +1,12 @@
 package com.sam.dsa.heap.problems;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
+import lombok.Getter;
+import lombok.Setter;
 
-public class SmallestRangeWithOneElementFromEachList {
+public class _6_SmallestRangeWithOneElementFromEachList {
 
   static class Node {
     @Getter @Setter private int data, index;
@@ -27,8 +26,8 @@ public class SmallestRangeWithOneElementFromEachList {
     // initialize a min heap and store the first elements of every list
     PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(Node::getData));
     for (int i = 0; i < lists.size(); i++) {
-        queue.add(new Node(lists.get(i).getFirst(), 0, i));
-        max = Math.max(max, lists.get(i).getFirst());
+      queue.add(new Node(lists.get(i).getFirst(), 0, i));
+      max = Math.max(max, lists.get(i).getFirst());
     }
 
     int[] result = new int[] {0, Integer.MAX_VALUE};

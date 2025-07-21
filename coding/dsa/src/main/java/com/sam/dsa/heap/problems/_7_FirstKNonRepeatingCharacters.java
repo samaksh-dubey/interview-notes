@@ -2,7 +2,7 @@ package com.sam.dsa.heap.problems;
 
 import java.util.*;
 
-public class FirstKNonRepeatingCharacters {
+public class _7_FirstKNonRepeatingCharacters {
 
   private static class Node {
     int count;
@@ -51,5 +51,4 @@ public class FirstKNonRepeatingCharacters {
 
     return result;
   }
-
 }

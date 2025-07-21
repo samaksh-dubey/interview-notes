@@ -1,11 +1,9 @@
 package com.sam.dsa.heap.problems;
 
+import java.util.*;
 import lombok.Getter;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
-public class FirstKMaximumOccurringWords {
+public class _8_FirstKMaximumOccurringWords {
 
   private static class Node {
     @Getter String word;
@@ -34,9 +32,9 @@ public class FirstKMaximumOccurringWords {
     // min heap to store the k largest elements till any index i
     PriorityQueue<Node> heap = new PriorityQueue<>(Comparator.comparingInt(Node::getCount));
 
-    for (Node node: map.values()) {
+    for (Node node : map.values()) {
       // for first k elements directly insert into the heap
-      if (heap.size() < k)  {
+      if (heap.size() < k) {
         heap.add(node);
         continue;
       }
@@ -53,8 +51,7 @@ public class FirstKMaximumOccurringWords {
 
     // prepare result list
     List<String> result = new ArrayList<>();
-    while (!heap.isEmpty())
-      result.add(heap.poll().getWord());
+    while (!heap.isEmpty()) result.add(heap.poll().getWord());
 
     return result;
   }

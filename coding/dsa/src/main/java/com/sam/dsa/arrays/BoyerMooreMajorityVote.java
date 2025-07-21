@@ -1,4 +1,3 @@
 package com.sam.dsa.arrays;
 
-public class BoyerMooreMajorityVote {
-}
+public class BoyerMooreMajorityVote {}

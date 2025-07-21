@@ -1,17 +1,16 @@
 package com.sam.dsa.heap.problems;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
-public class ConvertBSTtoHeapInPlace {
-  static public class Node {
+public class _10_ConvertBSTtoHeapInPlace {
+  public static class Node {
     @Getter @Setter private int data;
     @Getter @Setter private Node left, right;
 
-    Node (int data) {
+    Node(int data) {
       this.data = data;
     }
   }
@@ -40,8 +39,7 @@ public class ConvertBSTtoHeapInPlace {
     heapRef.right = null;
 
     // loop till the end of the list is reached
-    while (remaining != null)
-    {
+    while (remaining != null) {
       // dequeue next node
       Node parent = q.poll();
 
@@ -83,14 +81,13 @@ public class ConvertBSTtoHeapInPlace {
     return heapRef;
   }
 
-  static private Node push(Node node, Node head) {
+  private static Node push(Node node, Node head) {
     node.setRight(head);
     return node;
   }
 
-  static private Node convertToList(Node root, Node head) {
-    if (root == null)
-      return head;
+  private static Node convertToList(Node root, Node head) {
+    if (root == null) return head;
 
     head = convertToList(root.getRight(), head);
     head = push(root, head);
@@ -102,8 +99,7 @@ public class ConvertBSTtoHeapInPlace {
 
   // Function to convert a BST into a min-heap without using
   // any auxiliary space
-  public static Node convert(Node root)
-  {
+  public static Node convert(Node root) {
     // base case
     if (root == null) {
       return null;

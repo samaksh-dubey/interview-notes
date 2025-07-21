@@ -1,13 +1,12 @@
 package com.sam.dsa.heap.problems;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import lombok.Getter;
+import lombok.Setter;
 
-public class MergeMSortedLinkedList {
+public class _5_MergeMSortedLinkedList {
 
   private static class Node {
     @Getter private final int data;
@@ -32,8 +31,7 @@ public class MergeMSortedLinkedList {
       current.setNext(minNode);
       current = current.getNext();
 
-      if (min.next != null)
-        queue.add(min.getNext());
+      if (min.next != null) queue.add(min.getNext());
     }
 
     return dummyHead.getNext();

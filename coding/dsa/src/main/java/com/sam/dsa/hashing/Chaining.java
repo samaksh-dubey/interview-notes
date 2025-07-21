@@ -26,53 +26,51 @@ import java.util.List;
  */
 public class Chaining {
 
-    private final List<List<Integer>> hash_table;
-    private final int table_size;
+  private final List<List<Integer>> hash_table;
+  private final int table_size;
 
-    public Chaining(int table_size) {
-        this.table_size = table_size;
-        this.hash_table = new ArrayList<>();
-        for (int i = 0; i < table_size; i++) {
-            hash_table.add(new ArrayList<>());
-        }
+  public Chaining(int table_size) {
+    this.table_size = table_size;
+    this.hash_table = new ArrayList<>();
+    for (int i = 0; i < table_size; i++) {
+      hash_table.add(new ArrayList<>());
     }
+  }
 
-    private int hash(int x) {
-        return x % table_size;
-    }
+  private int hash(int x) {
+    return x % table_size;
+  }
 
-    public void put(int x) {
-        int hash = hash(x);
-        List<Integer> chain = hash_table.get(hash);
-        int i;
-        for (i = 0; i < chain.size(); i++) {
-            if (chain.get(i) > x)
-                break;
-        }
-        chain.add(i, x);
+  public void put(int x) {
+    int hash = hash(x);
+    List<Integer> chain = hash_table.get(hash);
+    int i;
+    for (i = 0; i < chain.size(); i++) {
+      if (chain.get(i) > x) break;
     }
+    chain.add(i, x);
+  }
 
-    public void remove(int x) {
-        int hash = hash(x);
-        List<Integer> chain = hash_table.get(hash);
-        int i;
-        for (i = 0; i < chain.size(); i++) {
-            if (chain.get(i) == x)
-                break;
-        }
-        if (chain.size() > i) {
-            chain.remove(i);
-        }
+  public void remove(int x) {
+    int hash = hash(x);
+    List<Integer> chain = hash_table.get(hash);
+    int i;
+    for (i = 0; i < chain.size(); i++) {
+      if (chain.get(i) == x) break;
     }
+    if (chain.size() > i) {
+      chain.remove(i);
+    }
+  }
 
-    public static void main(String[] args) {
-        Chaining chainedHash = new Chaining(10);
-        chainedHash.put(5);
-        chainedHash.put(35);
-        chainedHash.put(25);
-        chainedHash.put(55);
-        chainedHash.remove(35);
-        chainedHash.remove(55);
-        chainedHash.remove(105);
-    }
+  public static void main(String[] args) {
+    Chaining chainedHash = new Chaining(10);
+    chainedHash.put(5);
+    chainedHash.put(35);
+    chainedHash.put(25);
+    chainedHash.put(55);
+    chainedHash.remove(35);
+    chainedHash.remove(55);
+    chainedHash.remove(105);
+  }
 }

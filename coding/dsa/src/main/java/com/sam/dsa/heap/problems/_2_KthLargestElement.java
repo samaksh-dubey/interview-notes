@@ -3,12 +3,11 @@ package com.sam.dsa.heap.problems;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class KthLargestElement {
+public class _2_KthLargestElement {
 
   static int kthLargest(int[] arr, int k) {
     // base case: if k = 0 or if k is more than the total elements
-    if (k < 1 || k > arr.length)
-      return Integer.MIN_VALUE;
+    if (k < 1 || k > arr.length) return Integer.MIN_VALUE;
 
     // initialize kLargest as minimum value
     int kLargest = Integer.MIN_VALUE;

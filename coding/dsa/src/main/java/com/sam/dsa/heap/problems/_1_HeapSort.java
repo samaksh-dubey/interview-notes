@@ -1,20 +1,18 @@
 package com.sam.dsa.heap.problems;
 
-public class HeapSort {
+public class _1_HeapSort {
 
   static void sort(int[] arr) {
     heapify(arr);
     int N = arr.length;
     for (int i = 0; i < N; i++) {
       Integer element = poll(arr, N - i);
-      if (element != null)
-        arr[N - i - 1] = element;
+      if (element != null) arr[N - i - 1] = element;
     }
   }
 
   private static Integer poll(int[] arr, int size) {
-    if (size < 0)
-      return null;
+    if (size < 0) return null;
 
     int first = arr[0];
     int last = arr[size - 1];
@@ -35,16 +33,13 @@ public class HeapSort {
   }
 
   static void heapify_down(int[] arr, int i, int size) {
-    if (i >= size)
-      return;
+    if (i >= size) return;
 
     int largest = i;
 
-    if (left(i) < size && arr[left(i)] > arr[largest])
-      largest = left(i);
+    if (left(i) < size && arr[left(i)] > arr[largest]) largest = left(i);
 
-    if (right(i) < size && arr[right(i)] > arr[largest])
-      largest = right(i);
+    if (right(i) < size && arr[right(i)] > arr[largest]) largest = right(i);
 
     if (largest != i) {
       swap(arr, i, largest);

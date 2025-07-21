@@ -8,12 +8,12 @@ public class Heap<T> {
   private final Vector<T> vector;
   private final Comparator<T> comparator;
 
-  public Heap (Comparator<T> comparator) {
+  public Heap(Comparator<T> comparator) {
     this.vector = new Vector<>();
     this.comparator = comparator;
   }
 
-  public Heap (T[] elements, Comparator<T> comparator) {
+  public Heap(T[] elements, Comparator<T> comparator) {
     this.vector = new Vector<>();
     this.comparator = comparator;
     vector.addAll(Arrays.asList(elements));
@@ -28,8 +28,7 @@ public class Heap<T> {
 
   private void heapify() {
     int lastParent = HeapUtils.parent(vector.size() - 1);
-    for (int i = lastParent; i >= 0; i--)
-      heapifyDown(i);
+    for (int i = lastParent; i >= 0; i--) heapifyDown(i);
   }
 
   private void heapifyDown(int i) {
@@ -42,7 +41,7 @@ public class Heap<T> {
       next = right;
 
     if (next != i) {
-      swap(i ,next);
+      swap(i, next);
       heapifyDown(next);
     }
   }
@@ -61,8 +60,7 @@ public class Heap<T> {
   }
 
   public T poll() {
-    if (this.vector.isEmpty())
-      return null;
+    if (this.vector.isEmpty()) return null;
 
     T top = this.vector.getFirst();
     swap(0, this.vector.size() - 1);
@@ -72,8 +70,7 @@ public class Heap<T> {
   }
 
   public T peek() {
-    if (this.vector.isEmpty())
-      return null;
+    if (this.vector.isEmpty()) return null;
 
     return this.vector.getFirst();
   }

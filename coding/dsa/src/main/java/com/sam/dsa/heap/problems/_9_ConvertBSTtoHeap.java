@@ -1,11 +1,10 @@
 package com.sam.dsa.heap.problems;
 
+import java.util.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-public class ConvertBSTtoHeap {
+public class _9_ConvertBSTtoHeap {
   public static class Node {
     @Getter @Setter private int data;
     @Getter @Setter private Node left, right;
@@ -18,8 +17,7 @@ public class ConvertBSTtoHeap {
   // in inorder traversal manner add current to queue
   private static void convertToSortedQueue(Node root, Queue<Integer> keys) {
     // base case
-    if (root == null)
-      return;
+    if (root == null) return;
 
     // add left subtree to queue
     convertToSortedQueue(root.getLeft(), keys);
@@ -32,8 +30,7 @@ public class ConvertBSTtoHeap {
   }
 
   private static Node convertToTree(Queue<Integer> keys) {
-    if (keys == null || keys.isEmpty())
-      return null;
+    if (keys == null || keys.isEmpty()) return null;
 
     // poll first key of the keys and add data into heapRef
     Queue<Node> queue = new LinkedList<>();
