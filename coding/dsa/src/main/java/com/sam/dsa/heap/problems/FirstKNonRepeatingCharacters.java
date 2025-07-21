@@ -23,13 +23,21 @@ public class FirstKNonRepeatingCharacters {
       map.computeIfAbsent(input[i], c -> new Node()).increment(i);
     }
 
+    // store the indexes in a max heap (max size will be `k`)
     PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
 
+    // traverse the map and process index of all characters
     for (Node value : map.values()) {
+      // only process non-repeating characters
       if (value.count == 1) {
         if (pq.size() < k) {
+          // add first k characters
           pq.add(value.lastIndex);
-        } else if (value.lastIndex < pq.peek()) {
+          continue;
+        }
+
+        // add remaining character only if they appear before the current top
+        if (value.lastIndex < pq.peek()) {
           pq.poll();
           pq.add(value.lastIndex);
         }
@@ -38,7 +46,7 @@ public class FirstKNonRepeatingCharacters {
 
     List<Character> result = new ArrayList<>();
     while (!pq.isEmpty()) {
-      result.add(input[pq.poll()]);
+      result.addFirst(input[pq.poll()]);
     }
 
     return result;
