@@ -1,3 +1,21 @@
 #!/usr/bin/env bash
+echo '==pre-commit-code-formatting=='
+echo 'file(s) to be committed'
+fileString=`git diff --cached --name-only` #getting changed files(name only)
+files=${fileString%$'\n'*} #convert to list
+for file in $files
+do
+  echo "==>$file" #print file
+done
+echo 'running formatter(spring-javaformat:apply)'
 cd coding
 mvn spotless:apply
+cd ..
+echo 'formatting completed!'
+echo 'adding changes to existing-commit'
+for file in $files
+do
+  git add "$file" #add to commit
+  echo "==>added file : $file"
+done
+echo '==pre-commit-code-formatting-completed=='
