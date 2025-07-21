@@ -43,7 +43,7 @@ public class _2_LexicographicSortingTest extends TestCase {
             "results",
             "set",
               "simple",
-            "sorting",
+              "sorting",
             "that",
             "the",
             "traversal",
