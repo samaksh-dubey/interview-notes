@@ -1,6 +1,6 @@
-package com.sam.dsa.heap.problems;
+package com.sam.dsa._1_sorting.base;
 
-public class _1_HeapSort {
+public class _11_HeapSort {
 
   static void sort(int[] arr) {
     heapify(arr);

@@ -8,7 +8,7 @@ do
   echo "==>$file" #print file
 done
 echo 'running formatter(spring-javaformat:apply)'
-cd coding
+cd coding || exit
 mvn spotless:apply
 cd ..
 echo 'formatting completed!'

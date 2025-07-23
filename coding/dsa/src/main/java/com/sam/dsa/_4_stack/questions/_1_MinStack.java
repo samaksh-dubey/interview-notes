@@ -1,4 +1,4 @@
-package com.sam.dsa.stack.questions;
+package com.sam.dsa._4_stack.questions;
 
 import java.util.Stack;
 

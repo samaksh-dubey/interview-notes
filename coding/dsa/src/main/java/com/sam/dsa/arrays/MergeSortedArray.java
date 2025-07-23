@@ -18,7 +18,6 @@ public class MergeSortedArray {
     }
     Arrays.sort(X);
     Arrays.sort(Y);
-    System.out.printf("");
   }
 
   public static void swap(int[] X, int[] Y, int x, int y) {

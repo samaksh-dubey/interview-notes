@@ -1,4 +1,4 @@
-package com.sam.dsa.stack.base;
+package com.sam.dsa._4_stack.base;
 
 public class ArrayStack {
   private final int[] arr;
