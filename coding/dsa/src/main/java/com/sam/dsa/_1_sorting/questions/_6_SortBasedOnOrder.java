@@ -29,11 +29,4 @@ public class _6_SortBasedOnOrder {
           }
         });
   }
-
-  public static void main(String[] args) {
-    Integer[] first = new Integer[] {5, 8, 9, 3, 5, 7, 1, 3, 4, 9, 3, 5, 1, 8, 4};
-    Integer[] order = new Integer[] {3, 5, 7, 2};
-    sort(first, order);
-    System.out.println(Arrays.toString(first));
-  }
 }

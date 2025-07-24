@@ -10,12 +10,12 @@ public class _1_CopyList {
 
     Node current = dummy;
     while (Objects.nonNull(head)) {
-      Node node = new Node(head.getVal());
-      current.setNext(node);
-      head = head.getNext();
-      current = current.getNext();
+      Node node = new Node(head.val);
+      current.next = node;
+      head = head.next;
+      current = current.next;
     }
 
-    return dummy.getNext();
+    return dummy.next;
   }
 }
