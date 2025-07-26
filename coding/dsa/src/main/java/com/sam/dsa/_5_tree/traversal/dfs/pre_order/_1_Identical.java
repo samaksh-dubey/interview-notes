@@ -1,4 +1,4 @@
-package com.sam.dsa._5_tree;
+package com.sam.dsa._5_tree.traversal.dfs.pre_order;
 
 import com.sam.dsa._5_tree.node.TreeNode;
 

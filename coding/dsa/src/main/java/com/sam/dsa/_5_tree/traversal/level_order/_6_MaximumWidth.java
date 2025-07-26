@@ -1,11 +1,11 @@
-package com.sam.dsa._5_tree;
+package com.sam.dsa._5_tree.traversal.level_order;
 
 import com.sam.dsa._5_tree.node.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
 /** Find maximum width at a level https://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/ */
-public class MaximumWidth {
+public class _6_MaximumWidth {
 
   public static int maximumWidth(TreeNode root) {
     int maxWidth = -1;
@@ -21,9 +21,9 @@ public class MaximumWidth {
         while (count-- > 0) {
           TreeNode temp = queue.remove();
 
-          if (temp.getLeft() != null) queue.add(temp.getLeft());
+          if (temp.left != null) queue.add(temp.left);
 
-          if (temp.getRight() != null) queue.add(temp.getRight());
+          if (temp.right != null) queue.add(temp.right);
         }
       }
     }

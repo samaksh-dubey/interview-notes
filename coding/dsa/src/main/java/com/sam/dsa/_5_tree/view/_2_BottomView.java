@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
 
-/** https://www.geeksforgeeks.org/print-nodes-top-view-binary-tree/ */
-public class TopView {
+// https://www.geeksforgeeks.org/bottom-view-binary-tree
+public class _2_BottomView {
 
   static class ViewNode {
     TreeNode node;
@@ -28,17 +28,12 @@ public class TopView {
 
       while (!queue.isEmpty()) {
         ViewNode current = queue.poll();
-        if (!hdToNodeMap.containsKey(current.horizontalDistance)) {
-          hdToNodeMap.put(current.horizontalDistance, current);
-        }
+        hdToNodeMap.put(current.horizontalDistance, current);
 
-        if (current.node.getLeft() != null) {
-          queue.add(new ViewNode(current.node.getLeft(), current.horizontalDistance - 1));
-        }
-
-        if (current.node.getRight() != null) {
-          queue.add(new ViewNode(current.node.getRight(), current.horizontalDistance + 1));
-        }
+        if (current.node.left != null)
+          queue.add(new ViewNode(current.node.left, current.horizontalDistance - 1));
+        if (current.node.right != null)
+          queue.add(new ViewNode(current.node.right, current.horizontalDistance + 1));
       }
 
       hdToNodeMap.forEach(

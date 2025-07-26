@@ -1,9 +1,9 @@
-package com.sam.dsa._5_tree.traversal;
+package com.sam.dsa._5_tree.traversal.dfs;
 
 import com.sam.dsa._5_tree.node.TreeNode;
 import java.util.Stack;
 
-public class _1_Traversal {
+public class _1_DfsTraversal {
 
   public void preOrder(TreeNode root) {
     if (root != null) {
