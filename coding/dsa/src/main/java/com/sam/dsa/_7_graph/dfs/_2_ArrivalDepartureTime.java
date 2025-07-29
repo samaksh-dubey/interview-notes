@@ -18,14 +18,14 @@ public class _2_ArrivalDepartureTime {
     }
   }
 
-  private static int dfs(Graph graph, int vertex, boolean[] visited, int time, int[] arrival, int[] departure) {
-    if (visited[vertex])
-      return time;
+  private static int dfs(
+      Graph graph, int vertex, boolean[] visited, int time, int[] arrival, int[] departure) {
+    if (visited[vertex]) return time;
 
     arrival[vertex] = ++time;
     visited[vertex] = true;
 
-    for (Integer destination: graph.adjList.get(vertex)) {
+    for (Integer destination : graph.adjList.get(vertex)) {
       if (!visited[destination]) {
         time = dfs(graph, destination, visited, time, arrival, departure);
       }
@@ -34,5 +34,4 @@ public class _2_ArrivalDepartureTime {
     departure[vertex] = ++time;
     return time;
   }
-
 }
