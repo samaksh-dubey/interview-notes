@@ -1,7 +1,9 @@
 package com.sam.dsa;
 
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
+import lombok.Getter;
 
 /** Longest Consecutive Zeros Sub array less than size K */
 public class WF {
@@ -32,6 +34,18 @@ public class WF {
   }
 
   public static void main(String[] args) {
-    System.out.println(max(Arrays.asList(7, 4, 3, 5, 2), Arrays.asList(1, 0, 0, 0, 0), 2));
+    class Node {
+      @Getter char ch;
+      @Getter int index;
+
+      Node(char ch, int index) {
+        this.ch = ch;
+        this.index = index;
+      }
+    }
+    PriorityQueue<Node> pq =
+        new PriorityQueue<Node>(
+            Comparator.comparing(Node::getCh)
+                .thenComparing(Comparator.comparing(Node::getIndex).reversed()));
   }
 }
