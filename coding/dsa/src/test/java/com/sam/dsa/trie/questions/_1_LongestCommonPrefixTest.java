@@ -1,5 +1,6 @@
 package com.sam.dsa.trie.questions;
 
+import com.sam.dsa.ds._9_trie.questions._1_LongestCommonPrefix;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 

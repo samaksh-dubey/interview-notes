@@ -1,5 +1,6 @@
 package com.sam.dsa.trie.questions;
 
+import com.sam.dsa.ds._9_trie.questions._2_LexicographicSorting;
 import java.util.Arrays;
 import java.util.List;
 import junit.framework.Assert;
