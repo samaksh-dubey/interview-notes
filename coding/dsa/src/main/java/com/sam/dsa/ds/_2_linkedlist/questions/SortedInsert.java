@@ -3,7 +3,7 @@ package com.sam.dsa.ds._2_linkedlist.questions;
 import com.sam.dsa.ds._2_linkedlist.base.Node;
 import java.util.Objects;
 
-public class _2_SortedInsert {
+public class SortedInsert {
 
   public static Node sortedInsert(Node head, int val) {
     Node current = head, prev = null;

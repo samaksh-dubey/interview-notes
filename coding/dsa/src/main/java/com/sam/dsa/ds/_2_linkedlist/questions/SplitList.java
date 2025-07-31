@@ -3,7 +3,7 @@ package com.sam.dsa.ds._2_linkedlist.questions;
 import com.sam.dsa.ds._2_linkedlist.base.Node;
 import java.util.Objects;
 
-public class _3_SplitList {
+public class SplitList {
 
   public static Node split(Node head) {
     if (Objects.isNull(head)) return null;

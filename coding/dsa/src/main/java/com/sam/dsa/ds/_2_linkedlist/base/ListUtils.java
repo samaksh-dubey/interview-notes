@@ -2,11 +2,10 @@ package com.sam.dsa.ds._2_linkedlist.base;
 
 public class ListUtils {
 
-  public static Node constructList(int[] keys) {
+  public static Node construct(int[] keys) {
     Node head = null;
-
     for (int i = keys.length - 1; i >= 0; i--) {
-      head = push(head, keys[i]);
+      head = new Node(keys[i], head);
     }
     return head;
   }
