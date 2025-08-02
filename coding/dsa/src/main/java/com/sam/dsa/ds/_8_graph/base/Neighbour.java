@@ -5,6 +5,5 @@ import lombok.Getter;
 
 @AllArgsConstructor
 public class Neighbour {
-  @Getter private final int vertex;
-  private final int weight;
+  @Getter private final int vertex, weight;
 }

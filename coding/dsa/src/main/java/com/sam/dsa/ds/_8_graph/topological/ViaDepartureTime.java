@@ -8,7 +8,7 @@ public class ViaDepartureTime {
 
   public static int[] topologicalSort(DirectedGraph graph) {
     boolean[] visited = new boolean[graph.getV()];
-    int[] departureToIndex = new int[2 * graph.getV()];
+    int[] departureToIndex = new int[graph.getV()];
     Arrays.fill(departureToIndex, -1);
 
     int time = -1;
@@ -19,8 +19,8 @@ public class ViaDepartureTime {
 
     int[] sorted = new int[graph.getV()];
     int sortedIndex = 0;
-    for (int i = 2 * graph.getV() - 1; i >= 0; i--) {
-      if (departureToIndex[i] != -1) sorted[sortedIndex++] = departureToIndex[i];
+    for (int i = graph.getV() - 1; i >= 0; i--) {
+      sorted[sortedIndex++] = departureToIndex[i];
     }
 
     return sorted;
@@ -30,7 +30,6 @@ public class ViaDepartureTime {
       DirectedGraph graph, int at, boolean[] visited, int[] departureToIndex, int time) {
     if (visited[at]) return time;
 
-    time = time + 1;
     visited[at] = true;
 
     for (Neighbour to : graph.neighbours(at)) {
