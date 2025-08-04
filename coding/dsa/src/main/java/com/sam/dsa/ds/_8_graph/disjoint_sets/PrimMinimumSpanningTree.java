@@ -1,10 +1,8 @@
 package com.sam.dsa.ds._8_graph.disjoint_sets;
 
 import com.sam.dsa.ds._8_graph.base.Edge;
-import com.sam.dsa.ds._8_graph.base.Graph;
 import com.sam.dsa.ds._8_graph.base.Neighbour;
 import com.sam.dsa.ds._8_graph.base.UndirectedGraph;
-
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -19,11 +17,16 @@ public class PrimMinimumSpanningTree {
     while (!minHeap.isEmpty()) {
       Edge current = minHeap.poll();
 
-      if (visited[current.getDestination()])
-        continue;
+      if (visited[current.getDestination()]) continue;
 
       visited[current.getDestination()] = true;
-      System.out.println("Edge: " + current.getSource() + " - " + current.getDestination() + " | Weight: " + current.getWeight());
+      System.out.println(
+          "Edge: "
+              + current.getSource()
+              + " - "
+              + current.getDestination()
+              + " | Weight: "
+              + current.getWeight());
 
       for (Neighbour neighbor : graph.neighbours(current.getSource())) {
         if (!visited[neighbor.getVertex()]) {
