@@ -1,0 +1,8 @@
+1. [Operations](BstOperations.java)
+2. [Predecessor](FindPredecessor.java)
+3. [LCA](LCAinBST.java)
+4. [Kth Smallest](KthSmallestInBST.java)
+5. [Floor + Ceil](FloorAndCeil.java)
+6. [Range](RangeBased.java)
+7. [Inorder Successor](InorderSuccessor.java)
+8. [Sum of Greater](UpdateToSumOfGreater.java)

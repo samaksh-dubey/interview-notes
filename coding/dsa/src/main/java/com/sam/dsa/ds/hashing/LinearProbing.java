@@ -70,18 +70,4 @@ public class LinearProbing {
     }
     return false;
   }
-
-  public static void main(String[] args) {
-    LinearProbing linearHash = new LinearProbing(10);
-    linearHash.insert(26);
-    linearHash.insert(30);
-    linearHash.insert(45);
-    linearHash.insert(23);
-    linearHash.insert(25);
-    linearHash.insert(43);
-    linearHash.insert(74);
-    linearHash.insert(19);
-    linearHash.insert(29);
-    System.out.println();
-  }
 }

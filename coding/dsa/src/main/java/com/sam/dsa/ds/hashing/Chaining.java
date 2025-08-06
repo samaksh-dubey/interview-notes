@@ -62,15 +62,4 @@ public class Chaining {
       chain.remove(i);
     }
   }
-
-  public static void main(String[] args) {
-    Chaining chainedHash = new Chaining(10);
-    chainedHash.put(5);
-    chainedHash.put(35);
-    chainedHash.put(25);
-    chainedHash.put(55);
-    chainedHash.remove(35);
-    chainedHash.remove(55);
-    chainedHash.remove(105);
-  }
 }
